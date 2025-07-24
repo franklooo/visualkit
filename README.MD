@@ -433,29 +433,4 @@ function downloadFile(filename, content) {
     document.body.removeChild(element);
 }
 
-// 示例：下载配置文件
-document.getElementById('download-config').addEventListener('click', function() {
-    const config = {
-        "calendar_type": "lunar",
-        "spring_range": [-60, 60],
-        "colors": ["#FF6B6B", "#4ECDC4", "#45B7D1"],
-        "years": 5
-    };
-    downloadFile('config.json', JSON.stringify(config, null, 2));
-});
-</script>
 
-<style>
-.download-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 10px;
-}
-.download-btn:hover {
-    background: #0056b3;
-}
-</style>
