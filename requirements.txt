@@ -1,0 +1,22 @@
+# 数据可视化工具包依赖
+
+# 核心依赖
+pandas>=2.2.0
+numpy>=1.26.0
+pyecharts>=2.0.6
+python-dateutil>=2.9.0
+chinese-calendar>=1.10.0
+akshare>=1.12.0
+
+# 可选依赖（用于Wind数据获取）
+# WindPy>=1.0.0  # 需要Wind终端支持
+
+# 开发依赖
+pytest>=8.0.0
+pytest-cov>=5.0.0
+black>=24.0.0
+flake8>=7.0.0
+
+# 文档依赖
+sphinx>=7.0.0
+sphinx-rtd-theme>=2.0.0
