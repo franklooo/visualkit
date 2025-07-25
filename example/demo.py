@@ -11,14 +11,18 @@ import os
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from visualization_toolkit import (
-    SeasonalChart, TimeSeriesChart, DataFormatter,
-    TemplateManager, WindClient, DataProcessor
-)
+# 使用相对 imports (从子目录直接导入)
+from charts.seasonal_chart import SeasonalChart
+from charts.time_series_chart import TimeSeriesChart
+from utils.data_formatter import DataFormatter
+from utils.template_manager import TemplateManager
+from core.wind_client import WindClient
+from core.data_processor import DataProcessor
+from core.akshare_client import AkShareClient
 
-# 导入akshare客户端
+# 检查akshare是否可用
 try:
-    from core.akshare_client import AkShareClient
+    import akshare
     AKSHARE_AVAILABLE = True
 except ImportError:
     AKSHARE_AVAILABLE = False

@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime
-from pyecharts.charts import Line, Area, Bar
+from pyecharts.charts import Line, Bar
 from pyecharts import options as opts
 from .base_chart import BaseChart
 
@@ -16,6 +16,20 @@ class TimeSeriesChart(BaseChart):
     
     def __init__(self):
         super().__init__()
+    
+    def create_chart(self, df: pd.DataFrame, **kwargs) -> Line:
+        """创建默认时间序列图表"""
+        # 如果没有提供特定的参数，使用默认值
+        date_col = kwargs.get('date_col', 'date')
+        value_cols = kwargs.get('value_cols', [])
+        title = kwargs.get('title', '时间序列图')
+        
+        # 如果没有指定value_cols，尝试使用所有数值列
+        if not value_cols:
+            value_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+        
+        # 调用现有的create_time_series_line方法
+        return self.create_time_series_line(df, date_col, value_cols, title)
     
     def create_time_series_line(
         self,
@@ -36,11 +50,16 @@ class TimeSeriesChart(BaseChart):
         df = df.sort_values(date_col)
         
         # 创建图表
-        chart_type = Area if area else Line
-        chart = chart_type(init_opts=opts.InitOpts(
+        chart = Line(init_opts=opts.InitOpts(
             width=self.chart_config.get('width', '100%'),
             height=self.chart_config.get('height', '500px')
         ))
+        
+        # 如果需要面积图，设置面积样式
+        if area:
+            chart.set_series_opts(
+                areastyle_opts=opts.AreaStyleOpts(opacity=0.5)
+            )
         
         # 添加x轴数据
         x_data = df[date_col].dt.strftime('%Y-%m-%d').tolist()

@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from visualization_toolkit import SeasonalChart
+from visualkit import SeasonalChart
 
 
 class TestSeasonalChart:

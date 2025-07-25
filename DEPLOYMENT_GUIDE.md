@@ -41,7 +41,7 @@ uv --version
 ### 2. 克隆项目
 ```bash
 git clone <your-repo-url>
-cd visualization_toolkit
+cd visualkit
 ```
 
 ### 3. 创建项目环境
@@ -100,7 +100,7 @@ python example/demo.py
 
 #### 创建季节性分析图表
 ```python
-from visualization_toolkit import SeasonalChart, DataProcessor
+from visualkit import SeasonalChart, DataProcessor
 
 # 准备数据
 df = DataProcessor.create_sample_data(
@@ -120,7 +120,7 @@ seasonal_chart.render('seasonal_analysis.html')
 
 #### 时间序列分析
 ```python
-from visualization_toolkit import TimeSeriesChart
+from visualkit import TimeSeriesChart
 
 # 创建时间序列图表
 ts_chart = TimeSeriesChart()
@@ -164,7 +164,7 @@ export NUMBA_CACHE_DIR=./.numba_cache
 ### 3. 缓存配置
 ```python
 # 在代码中启用缓存
-from visualization_toolkit import set_cache_dir
+from visualkit import set_cache_dir
 set_cache_dir('./.cache')
 ```
 
@@ -211,8 +211,8 @@ CMD ["python", "example/demo.py"]
 
 构建和运行：
 ```bash
-docker build -t visualization-toolkit .
-docker run -p 8000:8000 visualization-toolkit
+docker build -t visualkit .
+docker run -p 8000:8000 visualkit
 ```
 
 ### 3. 云端部署
@@ -227,7 +227,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 克隆和运行项目
 git clone your-repo
-cd visualization_toolkit
+cd visualkit
 uv pip install -r requirements.txt
 nohup python example/demo.py &
 ```
@@ -321,7 +321,7 @@ git commit -m "Update dependencies"
 
 ### 1. 添加新图表类型
 ```python
-from visualization_toolkit import BaseChart
+from visualkit import BaseChart
 
 class CustomChart(BaseChart):
     def create_custom_chart(self, data, **kwargs):
@@ -331,7 +331,7 @@ class CustomChart(BaseChart):
 
 ### 2. 数据源扩展
 ```python
-from visualization_toolkit.core import BaseDataSource
+from visualkit.core import BaseDataSource
 
 class CustomDataSource(BaseDataSource):
     def fetch_data(self, **params):

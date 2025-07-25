@@ -8,8 +8,8 @@
 
 1. **克隆项目**
    ```bash
-   git clone https://github.com/your-username/visualization-toolkit.git
-   cd visualization-toolkit
+   git clone https://github.com/franklooo/visualkit.git
+   cd visualkit
    ```
 
 2. **创建虚拟环境**
@@ -63,17 +63,17 @@
 
 - **格式**: 使用Black格式化代码
   ```bash
-  black visualization_toolkit tests
+  black visualkit tests
   ```
 
 - **检查**: 使用flake8检查代码质量
   ```bash
-  flake8 visualization_toolkit tests
+  flake8 visualkit tests
   ```
 
 - **类型**: 使用mypy进行类型检查
   ```bash
-  mypy visualization_toolkit --ignore-missing-imports
+  mypy visualkit --ignore-missing-imports
   ```
 
 ### 提交消息规范
@@ -134,7 +134,7 @@ tests/
 ```python
 import pytest
 import pandas as pd
-from visualization_toolkit import SeasonalChart
+from visualkit import SeasonalChart
 
 class TestSeasonalChart:
     
@@ -178,7 +178,7 @@ pytest tests/
 pytest tests/test_charts/test_seasonal_chart.py::TestSeasonalChart::test_create_seasonal_line
 
 # 带覆盖率测试
-pytest tests/ --cov=visualization_toolkit --cov-report=html
+pytest tests/ --cov=visualkit --cov-report=html
 
 # 并行测试
 pytest tests/ -n auto
@@ -253,17 +253,17 @@ pre-commit install
 
 ```bash
 # 格式化所有代码
-black visualization_toolkit tests
+black visualkit tests
 
 # 检查格式
-black --check visualization_toolkit tests
+black --check visualkit tests
 ```
 
 ### 类型检查
 
 ```bash
 # 运行类型检查
-mypy visualization_toolkit --ignore-missing-imports
+mypy visualkit --ignore-missing-imports
 ```
 
 ## 🐛 报告问题
@@ -365,8 +365,8 @@ python scripts/publish.py --version 1.2.0 --pypi
 
 ## 📞 联系信息
 
-- **Issue**: [GitHub Issues](https://github.com/your-username/visualization-toolkit/issues)
-- **讨论**: [GitHub Discussions](https://github.com/your-username/visualization-toolkit/discussions)
+- **Issue**: [GitHub Issues](https://github.com/franklooo/visualkit/issues)
+- **讨论**: [GitHub Discussions](https://github.com/franklooo/visualkit/discussions)
 - **邮件**: your.email@example.com
 
 ## 📄 许可证

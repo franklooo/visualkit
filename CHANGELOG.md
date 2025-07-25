@@ -95,7 +95,7 @@
 
 1. 更新依赖：
    ```bash
-   pip install --upgrade visualization-toolkit
+   pip install --upgrade visualkit
    ```
 
 2. 检查兼容性：
@@ -105,7 +105,7 @@
 3. 新功能使用：
    ```python
    # 新功能示例
-   from visualization_toolkit import TemplateManager
+   from visualkit import TemplateManager
    
    manager = TemplateManager()
    template = manager.get_template('seasonal')
@@ -129,9 +129,9 @@
 
 ## 历史版本下载
 
-- [v1.2.0](https://github.com/your-username/visualization-toolkit/releases/tag/v1.2.0)
-- [v1.1.0](https://github.com/your-username/visualization-toolkit/releases/tag/v1.1.0)
-- [v1.0.0](https://github.com/your-username/visualization-toolkit/releases/tag/v1.0.0)
+- [v1.2.0](https://github.com/your-franklooo/visualkit/releases/tag/v1.2.0)
+- [v1.1.0](https://github.com/your-franklooo/visualkit/releases/tag/v1.1.0)
+- [v1.0.0](https://github.com/your-franklooo/visualkit/releases/tag/v1.0.0)
 
 ## 兼容性说明
 

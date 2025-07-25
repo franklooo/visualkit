@@ -45,7 +45,7 @@ def check_environment():
 def run_tests():
     """运行测试"""
     print("=== 运行测试 ===")
-    run_command("pytest tests/ -v --cov=visualization_toolkit")
+    run_command("pytest tests/ -v --cov=visualkit")
     print("✅ 测试通过")
 
 

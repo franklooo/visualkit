@@ -3,8 +3,8 @@
 基于pyecharts的现代季节性分析工具
 """
 
-__version__ = "1.0.0"
-__author__ = "Data Visualization Team"
+__version__ = "1.2.0"
+__author__ = "Franklooo"
 __description__ = "基于pyecharts的现代季节性分析工具包"
 
 # 导入核心模块

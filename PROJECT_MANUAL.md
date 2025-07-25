@@ -51,10 +51,10 @@ def check_dependencies():
 def check_project_structure():
     """检查项目结构"""
     required_files = [
-        'visualization_toolkit/__init__.py',
-        'visualization_toolkit/charts/__init__.py',
-        'visualization_toolkit/core/__init__.py',
-        'visualization_toolkit/utils/__init__.py',
+        'visualkit/__init__.py',
+        'visualkit/charts/__init__.py',
+        'visualkit/core/__init__.py',
+        'visualkit/utils/__init__.py',
     ]
     
     for file in required_files:
@@ -175,14 +175,14 @@ git add .
 git commit -m "Initial commit: Data Visualization Toolkit"
 
 # 创建GitHub仓库
-git remote add origin https://github.com/your-username/visualization-toolkit.git
+git remote add origin https://github.com/franklooo/visualkit.git
 git push -u origin main
 ```
 
 ### 2. 项目结构标准化
 
 ```
-visualization-toolkit/
+visualkit/
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yml
@@ -202,7 +202,7 @@ visualization-toolkit/
 ├── scripts/
 │   ├── validate_env.py
 │   └── build_docs.py
-├── visualization_toolkit/
+├── visualkit/
 ├── example/
 ├── requirements/
 ├── .gitignore
@@ -252,15 +252,15 @@ jobs:
     
     - name: Lint with flake8
       run: |
-        flake8 visualization_toolkit tests
+        flake8 visualkit tests
     
     - name: Type check with mypy
       run: |
-        mypy visualization_toolkit
+        mypy visualkit
     
     - name: Test with pytest
       run: |
-        pytest tests/ -v --cov=visualization_toolkit --cov-report=xml
+        pytest tests/ -v --cov=visualkit --cov-report=xml
     
     - name: Upload coverage
       uses: codecov/codecov-action@v3
@@ -315,9 +315,9 @@ jobs:
 ```markdown
 # 数据可视化工具包
 
-[![CI](https://github.com/your-username/visualization-toolkit/workflows/CI/badge.svg)](https://github.com/your-username/visualization-toolkit/actions)
-[![codecov](https://codecov.io/gh/your-username/visualization-toolkit/branch/main/graph/badge.svg)](https://codecov.io/gh/your-username/visualization-toolkit)
-[![PyPI version](https://badge.fury.io/py/visualization-toolkit.svg)](https://badge.fury.io/py/visualization-toolkit)
+[![CI](https://github.com/franklooo/visualkit/workflows/CI/badge.svg)](https://github.com/franklooo/visualkit/actions)
+[![codecov](https://codecov.io/gh/franklooo/visualkit/branch/main/graph/badge.svg)](https://codecov.io/gh/franklooo/visualkit)
+[![PyPI version](https://badge.fury.io/py/visualkit.svg)](https://badge.fury.io/py/visualkit)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 基于pyecharts的高级数据可视化工具包...
@@ -325,7 +325,7 @@ jobs:
 ## 快速开始
 
 ```bash
-pip install visualization-toolkit
+pip install visualkit
 ```
 
 ## 特性
@@ -337,7 +337,7 @@ pip install visualization-toolkit
 ## 示例
 
 ```python
-from visualization_toolkit import SeasonalChart
+from visualkit import SeasonalChart
 
 # 创建季节性图表
 chart = SeasonalChart()
@@ -345,8 +345,8 @@ chart.create_seasonal_line(data, 'price', '公历')
 ```
 
 ## 文档
-- [完整文档](https://visualization-toolkit.readthedocs.io)
-- [API参考](https://visualization-toolkit.readthedocs.io/en/latest/api.html)
+- [完整文档](https://visualkit.readthedocs.io)
+- [API参考](https://visualkit.readthedocs.io/en/latest/api.html)
 
 ## 贡献
 参见 [CONTRIBUTING.md](CONTRIBUTING.md)
@@ -375,7 +375,7 @@ source test_env/bin/activate
 pip install dist/*.whl
 
 # 验证导入
-python -c "import visualization_toolkit; print('OK')"
+python -c "import visualkit; print('OK')"
 ```
 
 ### 2. 版本管理
@@ -413,7 +413,7 @@ python -m build
 twine upload --repository testpypi dist/*
 
 # 4. 测试安装
-pip install -i https://test.pypi.org/simple/ visualization-toolkit
+pip install -i https://test.pypi.org/simple/ visualkit
 
 # 5. 上传到正式PyPI
 twine upload dist/*
@@ -456,19 +456,19 @@ password = pypi-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #### 从PyPI安装
 ```bash
 # 基础安装
-pip install visualization-toolkit
+pip install visualkit
 
 # 完整安装（含Wind支持）
-pip install visualization-toolkit[wind]
+pip install visualkit[wind]
 
 # 开发环境
-pip install visualization-toolkit[dev]
+pip install visualkit[dev]
 ```
 
 #### 从源码安装
 ```bash
-git clone https://github.com/your-username/visualization-toolkit.git
-cd visualization-toolkit
+git clone https://github.com/franklooo/visualkit.git
+cd visualkit
 pip install -e .
 ```
 
@@ -477,7 +477,7 @@ pip install -e .
 #### 基础使用
 ```python
 import pandas as pd
-from visualization_toolkit import SeasonalChart, TimeSeriesChart
+from visualkit import SeasonalChart, TimeSeriesChart
 
 # 创建示例数据
 dates = pd.date_range('2021-01-01', '2023-12-31', freq='D')
@@ -507,7 +507,7 @@ chart2.render('timeseries.html')
 
 #### 高级功能
 ```python
-from visualization_toolkit import DataProcessor, TemplateManager
+from visualkit import DataProcessor, TemplateManager
 
 # 数据处理
 df = DataProcessor.create_sample_data(
@@ -543,7 +543,7 @@ class TimeSeriesChart(BaseChart):
 
 #### 全局配置
 ```python
-from visualization_toolkit import DEFAULT_CONFIG
+from visualkit import DEFAULT_CONFIG
 
 # 修改默认配置
 DEFAULT_CONFIG.update({
@@ -571,10 +571,10 @@ export VIZ_TOOLKIT_HEIGHT=800
 #### 1. 安装问题
 ```bash
 # 权限问题
-pip install --user visualization-toolkit
+pip install --user visualkit
 
 # 网络问题
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple visualization-toolkit
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple visualkit
 ```
 
 #### 2. 运行问题
@@ -598,8 +598,8 @@ df = DataProcessor.format_numeric_columns(df)
 
 ### 支持渠道
 
-- **GitHub Issues**: https://github.com/your-username/visualization-toolkit/issues
-- **文档**: https://visualization-toolkit.readthedocs.io
+- **GitHub Issues**: https://github.com/franklooo/visualkit/issues
+- **文档**: https://visualkit.readthedocs.io
 - **邮件**: support@your-domain.com
 - **微信群**: 扫描二维码加入
 
@@ -609,9 +609,9 @@ df = DataProcessor.format_numeric_columns(df)
 
 ### 徽章
 ```markdown
-[![CI](https://github.com/your-username/visualization-toolkit/workflows/CI/badge.svg)](https://github.com/your-username/visualization-toolkit/actions)
-[![codecov](https://codecov.io/gh/your-username/visualization-toolkit/branch/main/graph/badge.svg)](https://codecov.io/gh/your-username/visualization-toolkit)
-[![PyPI version](https://badge.fury.io/py/visualization-toolkit.svg)](https://badge.fury.io/py/visualization-toolkit)
+[![CI](https://github.com/franklooo/visualkit/workflows/CI/badge.svg)](https://github.com/franklooo/visualkit/actions)
+[![codecov](https://codecov.io/gh/franklooo/visualkit/branch/main/graph/badge.svg)](https://codecov.io/gh/franklooo/visualkit)
+[![PyPI version](https://badge.fury.io/py/visualkit.svg)](https://badge.fury.io/py/visualkit)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ```

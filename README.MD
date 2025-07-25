@@ -17,7 +17,7 @@
 ## 📁 项目结构
 
 ```
-visualization_toolkit/
+visualkit/
 ├── 📋 __init__.py
 ├── 🔧 core/
 │   ├── __init__.py
@@ -46,10 +46,10 @@ visualization_toolkit/
 
 ```bash
 # 基础安装
-pip install visualization-toolkit
+pip install visualkit
 
 # 完整安装（含akshare数据接口）
-pip install visualization-toolkit[akshare]
+pip install visualkit[akshare]
 
 # 开发安装
 pip install -e .
@@ -293,7 +293,7 @@ python quick_demo.py list
 ### 数据预处理器
 
 ```python
-from visualization_toolkit.core.data_processor import DataProcessor
+from visualkit.core.data_processor import DataProcessor
 
 processor = DataProcessor()
 
@@ -398,7 +398,7 @@ A: 通过colors参数传入颜色列表，或使用默认配色方案。
 ### 🎯 快速开始
 ```bash
 # 安装
-pip install visualization-toolkit
+pip install visualkit
 
 # 立即体验（无需数据准备）
 python quick_demo.py
@@ -414,7 +414,7 @@ python quick_demo.py list
 
 ---
 
-**立即体验**：`pip install visualization-toolkit && python quick_demo.py`
+**立即体验**：`pip install visualkit && python quick_demo.py`
 
 <div align="center">
 

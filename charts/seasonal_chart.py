@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-from ..core.data_processor import DataProcessor
+from core.data_processor import DataProcessor
 
 class SeasonalChart:
     """季节性图表生成器（基于pyecharts）"""
@@ -62,10 +62,16 @@ class SeasonalChart:
         # 添加x轴数据
         x_data = chart_data[x_col].unique().tolist()
         x_data.sort()
+        line.add_xaxis(x_data)
         
+        # 为每个年份准备数据，确保没有重复的x值
         for year in latest_years:
             year_data = chart_data[chart_data['year'] == year]
-            y_data = year_data.set_index(x_col).reindex(x_data)[value_col].tolist()
+            # 按x_col分组并取平均值，以处理重复值
+            grouped_data = year_data.groupby(x_col)[value_col].mean().reset_index()
+            # 重新索引以确保所有x值都有数据
+            indexed_data = grouped_data.set_index(x_col).reindex(x_data)
+            y_data = indexed_data[value_col].tolist()
             
             # 高亮最新年份
             is_latest = year == latest_years[-1]
@@ -129,8 +135,6 @@ class SeasonalChart:
             ]
         )
         
-        line.add_xaxis(x_data)
-        
         return line
     
     def create_seasonal_grid(
@@ -147,12 +151,16 @@ class SeasonalChart:
         
         charts = []
         for col in value_cols:
+            # 从kwargs中移除title参数，避免重复传递
+            chart_kwargs = kwargs.copy()
+            chart_kwargs.pop('title', None)  # 移除title参数如果存在
+            
             chart = self.create_seasonal_line(
                 df[[date_col, col]].rename(columns={col: 'value'}),
                 date_col=date_col,
                 value_col='value',
                 title=col,
-                **kwargs
+                **chart_kwargs
             )
             charts.append(chart)
         
@@ -186,7 +194,7 @@ class SeasonalChart:
         spring_range: Tuple[int, int]
     ) -> pd.DataFrame:
         """准备农历数据（春节对齐）"""
-        from ..core.calendar_manager import CalendarManager
+        from core.calendar_manager import CalendarManager
         
         calendar = CalendarManager()
         return calendar.get_lunar_aligned_data(df, date_col, value_col, spring_range)

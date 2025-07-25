@@ -3,11 +3,11 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "visualization-toolkit"
+name = "visualkit"
 version = "1.2.0"
 description = "A comprehensive financial data visualization toolkit with seasonal and time series charts"
 readme = "README.MD"
-requires-python = ">=3.8,<3.14"
+requires-python = ">=3.10,<3.14"
 license = {text = "MIT"}
 authors = [
     {name = "Your Name", email = "your.email@example.com"},
@@ -18,9 +18,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Financial and Insurance Industry",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -37,6 +34,8 @@ dependencies = [
     "akshare>=1.12.0",
     "Jinja2>=3.1.0",
     "requests>=2.31.0",
+    "ipykernel>=6.30.0",
+    "ipywidgets>=8.0.0",
 ]
 
 [project.optional-dependencies]
@@ -53,13 +52,13 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/visualization_toolkit"
-Documentation = "https://visualization-toolkit.readthedocs.io"
-Repository = "https://github.com/yourusername/visualization_toolkit"
-Issues = "https://github.com/yourusername/visualization_toolkit/issues"
+Homepage = "https://github.com/franklooo/visualkit"
+Documentation = "https://visualkit.readthedocs.io"
+Repository = "https://github.com/franklooo/visualkit"
+Issues = "https://github.com/franklooo/visualkit/issues"
 
 [project.scripts]
-vtk-demo = "visualization_toolkit.demo:main"
+vtk-demo = "visualkit.demo:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["charts", "core", "utils"]

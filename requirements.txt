@@ -7,6 +7,7 @@ pyecharts>=2.0.6
 python-dateutil>=2.9.0
 chinese-calendar>=1.10.0
 akshare>=1.12.0
+ipywidgets>=8.0.0
 
 # 可选依赖（用于Wind数据获取）
 # WindPy>=1.0.0  # 需要Wind终端支持
